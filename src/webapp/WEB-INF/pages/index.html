@@ -3,13 +3,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>All users</title>
+    <style>
+        table th, table td {
+            padding: 5px;
+            border: 1px black double;
+            text-align: center
+        }
+    </style>
 </head>
 <body>
-<div>
-    <th:block th:each="msg : ${messages}">
-        <h1 th:text="${msg}"></h1>
-    </th:block>
-</div>
+<div style="font-weight: bold;">/ all user details</div>
+<h1>All users details:</h1>
+<table style = "border: 1px black double;">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Edit</th>
+    </tr>
+
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}">id</td>
+        <td th:text="${user.name}">name</td>
+        <td th:text="${user.lastName}">lastname</td>
+        <td th:text="${user.email}">email</td>
+        <td><a th:href="@{/{id}(id=${user.id})}" style="font-weight: bold;">Edit</a></td>
+    </tr>
+
+</table>
+<br>
+<a th:href="@{/new}" style="font-weight: bold;">Add new user</a>
 </body>
 </html>
