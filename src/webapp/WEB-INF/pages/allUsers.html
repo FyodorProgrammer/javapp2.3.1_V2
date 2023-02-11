@@ -22,6 +22,7 @@
         <th>Last Name</th>
         <th>Email</th>
         <th>Edit</th>
+        <th>Delete</th>
     </tr>
 
     <tr th:each="user : ${users}">
@@ -29,11 +30,18 @@
         <td th:text="${user.name}">name</td>
         <td th:text="${user.lastName}">lastname</td>
         <td th:text="${user.email}">email</td>
-        <td><a th:href="@{/{id}(id=${user.id})}" style="font-weight: bold;">Edit</a></td>
+        <td><form th:action="@{/{id}/edit(id=${user.id})}">
+            <input type="submit" value="Edit" style="padding: 5px 10px"/>
+        </form></td>
+        <td><form th:method="DELETE" th:action="@{delete/{id}(id=${user.id})}">
+            <input type="submit" value="Delete" style="padding: 5px 10px">
+        </form></td>
     </tr>
 
 </table>
 <br>
-<a th:href="@{/new}" style="font-weight: bold;">Add new user</a>
+<form action="/new">
+    <button type="submit">Add new user</button>
+</form>
 </body>
 </html>

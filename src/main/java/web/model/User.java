@@ -1,53 +1,66 @@
 package web.model;
 
+import javax.persistence.*;
 
+@Entity
+@Table(name = "users")
 public class User {
-   private long id;
 
-   private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
-   private String lastName;
+    @Column(name = "name")
+    private String name;
 
-   private String email;
+    @Column(name = "lastname")
+    private String lastName;
 
-   public User() {}
+    @Column(name = "email")
+    private String email;
 
-   public User(long id, String name, String lastName, String email) {
-      this.id=id;
-      this.name = name;
-      this.lastName = lastName;
-      this.email = email;
-   }
+    public User() {
+    }
 
-   public long getId() {
-      return id;
-   }
+    public long getId() {
+        return id;
+    }
 
-   public void setId(long id) {
-      this.id = id;
-   }
+    public void setId(long id) {
+        this.id = id;
+    }
 
-   public String getName() {
-      return name;
-   }
+    public String getName() {
+        return name;
+    }
 
-   public void setName(String name) {
-      this.name = name;
-   }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-   public String getLastName() {
-      return lastName;
-   }
+    public String getLastName() {
+        return lastName;
+    }
 
-   public void setLastName(String lastName) {
-      this.lastName = lastName;
-   }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-   public String getEmail() {
-      return email;
-   }
+    public String getEmail() {
+        return email;
+    }
 
-   public void setEmail(String email) {
-      this.email = email;
-   }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }

@@ -8,7 +8,7 @@
 <body>
 <div style="font-weight: bold;">/ <a th:href="@{/}">all users</a> / Add new user</div>
 <h1>Enter user details:</h1>
-<form th:method="POST" th:action="@{/}" th:object="${user}">
+<form th:method="POST" th:action="@{/saveUser}" th:object="${user}">
 
   <label for="name">Name: </label><br>
   <input type="text" th:field="*{name}" id="name"/><br>
@@ -19,7 +19,7 @@
     <label for="email">Email: </label><br>
   <input type="text" th:field="*{email}" id="email"/><br>
   <br>
-  <input type="submit" value="Create!"/>
+  <input type="submit" value="Add user"/>
 </form>
 </body>
 </html>
